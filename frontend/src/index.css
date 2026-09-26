@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/* Calm, low-friction palette. One accent color, soft neutrals. */
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --color-canvas: #f7f6f3;
+  --color-surface: #ffffff;
+  --color-ink: #1f2a2e;
+  --color-muted: #5b676b;
+  --color-line: #e4e1da;
+
+  --color-accent: #2f6f6a;
+  --color-accent-strong: #245652;
+  --color-accent-soft: #e3efed;
+
+  --color-wait: #8a5a00;
+  --color-wait-soft: #fbf1dc;
+  --color-ready: #2f6f6a;
+  --color-ready-soft: #e3efed;
+  --color-problem: #9b3b2f;
+  --color-problem-soft: #f8e6e2;
+}
+
+html,
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}

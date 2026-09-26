@@ -19,7 +19,7 @@ A secure web portal where therapy patients read plain-language summaries of thei
 |---|---|
 | Front end | React, Vite, TypeScript, Tailwind |
 | API | FastAPI on Cloud Run |
-| Auth | Firebase Authentication or Identity Platform |
+| Auth | Clerk |
 | File storage | Cloud Storage |
 | Metadata and audit | Firestore |
 | Model | Vertex AI, behind a `SummarizerBackend` interface |
@@ -54,6 +54,10 @@ Work is tracked as GitHub issues grouped into milestones.
 - Historical links point to the correct patient and prior session
 - Failed processing jobs show a visible status
 - The full Dana demo flow runs without manual database edits
+
+## Front end
+
+See [frontend/README.md](frontend/README.md) to run the patient screens locally.
 
 ## Docs
 
