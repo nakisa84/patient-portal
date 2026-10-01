@@ -55,9 +55,22 @@ Work is tracked as GitHub issues grouped into milestones.
 - Failed processing jobs show a visible status
 - The full Dana demo flow runs without manual database edits
 
-## Front end
+## Quick start (front end)
 
-See [frontend/README.md](frontend/README.md) to run the patient screens locally.
+Requires Node.js 20.19+ (or 22.12+).
+
+```bash
+git clone https://github.com/nakisa84/patient-portal.git
+cd patient-portal
+git checkout feature/frontend-ui
+cd frontend
+npm install
+npm run dev
+```
+
+Open <http://localhost:5173> and sign in as `dana@example.com` with any password (demo mode).
+
+To use Clerk login instead, and for troubleshooting, see [frontend/README.md](frontend/README.md).
 
 ## Docs
 
