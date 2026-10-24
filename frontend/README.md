@@ -55,6 +55,23 @@ The app picks the mode when it starts, based on `frontend/.env.local`.
 
 After changing `.env.local`, restart `npm run dev`. Vite only reads it at startup.
 
+The switch lives in `src/main.tsx`: if `VITE_CLERK_PUBLISHABLE_KEY` has a value, the app uses `ClerkAuthProvider`; otherwise it uses `DemoAuthProvider`.
+
+### Switch Clerk on and off
+
+Run these from the `frontend` folder. Restart `npm run dev` after each switch.
+
+| Goal | Command |
+|---|---|
+| Turn Clerk on (first time) | `echo "VITE_CLERK_PUBLISHABLE_KEY=pk_test_your_key_here" > .env.local` |
+| Turn Clerk off (keeps the key) | `mv .env.local .env.local.off` |
+| Turn Clerk back on | `mv .env.local.off .env.local` |
+| Check the current mode | `cat .env.local` (no file means demo mode) |
+
+**Expected result:** with Clerk on, the login page shows Clerk's sign-in box. With Clerk off, it shows the demo form.
+
+`VITE_MEMORY_ROUTER=true` is a separate setting for self-contained demo builds. It has nothing to do with Clerk and can be ignored for local work.
+
 ## 4. Turn on Clerk
 
 Menu names in the Clerk dashboard may differ slightly from these.
