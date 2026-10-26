@@ -62,7 +62,6 @@ Requires Node.js 20.19+ (or 22.12+).
 ```bash
 git clone https://github.com/nakisa84/patient-portal.git
 cd patient-portal
-git checkout feature/frontend-ui
 cd frontend
 npm install
 npm run dev

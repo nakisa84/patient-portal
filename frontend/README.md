@@ -27,7 +27,6 @@ Both should print a version number. If you get `zsh: command not found: npm`, No
 ```bash
 git clone https://github.com/nakisa84/patient-portal.git
 cd patient-portal
-git checkout feature/frontend-ui
 cd frontend
 npm install
 ```
