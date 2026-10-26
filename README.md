@@ -72,6 +72,11 @@ Open <http://localhost:5173> and sign in as `dana@example.com` with any password
 
 To use Clerk login instead, and for troubleshooting, see [frontend/README.md](frontend/README.md).
 
+## Quick start (backend)
+
+See [backend/README.md](backend/README.md). Google Cloud and Clerk setup is in [docs/setup-gcp-and-clerk.md](docs/setup-gcp-and-clerk.md).
+
 ## Docs
 
 - [Project plan v1.2](docs/project-plan-v1.2.pdf)
+- [Setup log: Google Cloud and Clerk, with current status](docs/setup-gcp-and-clerk.md)
