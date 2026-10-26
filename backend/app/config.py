@@ -30,6 +30,7 @@ class Settings:
     # Origins allowed to use a token (Clerk's "azp" claim). Also used for CORS.
     authorized_parties: list[str] = field(default_factory=list)
     gcs_bucket: str = ""
+    gcp_project: str = ""
 
     @property
     def jwks_url(self) -> str:
@@ -50,4 +51,5 @@ def load_settings() -> Settings:
         clerk_issuer=issuer,
         authorized_parties=_split(os.getenv("AUTHORIZED_PARTIES", "http://localhost:5173")),
         gcs_bucket=os.getenv("GCS_BUCKET", ""),
+        gcp_project=os.getenv("GCP_PROJECT", ""),
     )

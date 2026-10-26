@@ -13,7 +13,7 @@ Everything below was done by hand, outside the code. It is written down here so 
 | 3 | Service account `portal-api` with bucket access | Done |
 | 3d | Local impersonation of `portal-api` | Done |
 | 4 | Backend verifies Clerk token and derives `patient_id` | Done, tested with Dana and Sam |
-| 5 | Upload endpoints (signed URL into the patient folder) | Next |
+| 5 | Upload endpoints (signed URL into the patient folder) | In progress: code done, live test next |
 | 6 | Front end Upload page uses the real backend | To do |
 | 7 | Isolation tests with real files | To do |
 
@@ -161,6 +161,23 @@ To see what is inside the token:
 const c = JSON.parse(atob(t.split(".")[1].replace(/-/g, "+").replace(/_/g, "/")));
 console.log("patient_id:", c.patient_id, "| fields:", Object.keys(c).join(", "));
 ```
+
+## 6. Bucket CORS (browser uploads)
+
+The browser uploads straight to the bucket with a signed URL, so the bucket must accept requests from the website. The rule is in `infra/gcs-cors.json`.
+
+```bash
+gcloud storage buckets update gs://patient-portal-nakisa-data --cors-file=infra/gcs-cors.json
+gcloud storage buckets describe gs://patient-portal-nakisa-data   # look for the cors_config section
+```
+
+| Allowed | Value |
+|---|---|
+| Website | `http://localhost:5173` only |
+| Method | `PUT` only (uploads) |
+| Headers | `Content-Type`, `x-goog-meta-document-type` |
+
+CORS only controls which website may send the request. The signed URL is still what grants access, and only to one file.
 
 ## Troubleshooting
 

@@ -2,6 +2,7 @@ from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from .auth import Patient, get_current_patient, get_settings
+from .uploads import router as uploads_router
 
 app = FastAPI(title="Patient Portal API (prototype, synthetic data only)")
 
@@ -25,3 +26,6 @@ def me(patient: Patient = Depends(get_current_patient)) -> dict:
         "patient_id": patient.patient_id,
         "storage_prefix": patient.storage_prefix,
     }
+
+
+app.include_router(uploads_router)
