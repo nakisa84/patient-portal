@@ -19,7 +19,7 @@ A secure web portal where therapy patients read plain-language summaries of thei
 |---|---|
 | Front end | React, Vite, TypeScript, Tailwind |
 | API | FastAPI on Cloud Run |
-| Auth | Firebase Authentication or Identity Platform |
+| Auth | Clerk |
 | File storage | Cloud Storage |
 | Metadata and audit | Firestore |
 | Model | Vertex AI, behind a `SummarizerBackend` interface |
@@ -54,6 +54,23 @@ Work is tracked as GitHub issues grouped into milestones.
 - Historical links point to the correct patient and prior session
 - Failed processing jobs show a visible status
 - The full Dana demo flow runs without manual database edits
+
+## Quick start (front end)
+
+Requires Node.js 20.19+ (or 22.12+).
+
+```bash
+git clone https://github.com/nakisa84/patient-portal.git
+cd patient-portal
+git checkout feature/frontend-ui
+cd frontend
+npm install
+npm run dev
+```
+
+Open <http://localhost:5173> and sign in as `dana@example.com` with any password (demo mode).
+
+To use Clerk login instead, and for troubleshooting, see [frontend/README.md](frontend/README.md).
 
 ## Docs
 
